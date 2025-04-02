@@ -80,7 +80,7 @@
             // btAdicionar
             // 
             this.btAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btAdicionar.Location = new System.Drawing.Point(471, 285);
+            this.btAdicionar.Location = new System.Drawing.Point(471, 140);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(317, 143);
             this.btAdicionar.TabIndex = 4;
@@ -112,7 +112,7 @@
             // btRemover
             // 
             this.btRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btRemover.Location = new System.Drawing.Point(471, 136);
+            this.btRemover.Location = new System.Drawing.Point(471, 289);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(317, 143);
             this.btRemover.TabIndex = 6;

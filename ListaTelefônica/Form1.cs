@@ -56,6 +56,13 @@ namespace ListaTelefônica
         {
             DataGridViewCell cell = dgvLista.SelectedCells[0];
             int indice = cell.RowIndex;
+            for (int i = indice;i < itens - 1; i++)
+            {
+                lista[i, 0] = lista[i + 1, 0];
+                lista[i, 1] = lista[i + 1, 1];
+                itens--;
+                Atualizar();
+            }
         }
     }
 }
