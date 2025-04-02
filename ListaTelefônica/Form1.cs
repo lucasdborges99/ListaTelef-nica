@@ -54,12 +54,15 @@ namespace ListaTelefônica
 
         private void btRemover_Click(object sender, EventArgs e)
         {
-            DataGridViewCell cell = dgvLista.SelectedCells[0];
-            int indice = cell.RowIndex;
-            for (int i = indice;i < itens - 1; i++)
+            if (MessageBox.Show("Você realmente deseja remover?", "Confirmação", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                lista[i, 0] = lista[i + 1, 0];
-                lista[i, 1] = lista[i + 1, 1];
+                DataGridViewCell cell = dgvLista.SelectedCells[0];
+                int indice = cell.RowIndex;
+                for (int i = indice; i < itens - 1; i++)
+                {
+                    lista[i, 0] = lista[i + 1, 0];
+                    lista[i, 1] = lista[i + 1, 1];
+                }
                 itens--;
                 Atualizar();
             }
