@@ -34,9 +34,10 @@
             this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.btRemover = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btRemover = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,22 +93,13 @@
             // 
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Nome,
             this.Telefone});
             this.dgvLista.Location = new System.Drawing.Point(12, 12);
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.Size = new System.Drawing.Size(439, 426);
             this.dgvLista.TabIndex = 5;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            // 
-            // Telefone
-            // 
-            this.Telefone.HeaderText = "Telefone";
-            this.Telefone.Name = "Telefone";
             // 
             // btRemover
             // 
@@ -119,6 +111,21 @@
             this.btRemover.Text = "Remover";
             this.btRemover.UseVisualStyleBackColor = true;
             this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            // 
+            // Telefone
+            // 
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
             // 
             // Form1
             // 
@@ -148,9 +155,10 @@
         private System.Windows.Forms.MaskedTextBox txtTel;
         private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.DataGridView dgvLista;
+        private System.Windows.Forms.Button btRemover;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
-        private System.Windows.Forms.Button btRemover;
     }
 }
 
