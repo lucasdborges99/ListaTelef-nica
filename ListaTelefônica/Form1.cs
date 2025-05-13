@@ -19,6 +19,9 @@ namespace ListaTelefônica
         public Form1()
         {
             InitializeComponent();
+            btAdicionar.TabIndex = 0;
+            btRemover.TabIndex = 1;
+            dgvLista.TabStop = false;
             lista = new string[MAX][];
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;

@@ -34,10 +34,10 @@
             this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.btRemover = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btRemover = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +85,7 @@
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(317, 143);
             this.btAdicionar.TabIndex = 4;
-            this.btAdicionar.Text = "Adicionar";
+            this.btAdicionar.Text = "&Adicionar";
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
@@ -101,17 +101,6 @@
             this.dgvLista.Size = new System.Drawing.Size(439, 426);
             this.dgvLista.TabIndex = 5;
             // 
-            // btRemover
-            // 
-            this.btRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btRemover.Location = new System.Drawing.Point(471, 289);
-            this.btRemover.Name = "btRemover";
-            this.btRemover.Size = new System.Drawing.Size(317, 143);
-            this.btRemover.TabIndex = 6;
-            this.btRemover.Text = "Remover";
-            this.btRemover.UseVisualStyleBackColor = true;
-            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
-            // 
             // ID
             // 
             this.ID.HeaderText = "ID";
@@ -126,6 +115,17 @@
             // 
             this.Telefone.HeaderText = "Telefone";
             this.Telefone.Name = "Telefone";
+            // 
+            // btRemover
+            // 
+            this.btRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.btRemover.Location = new System.Drawing.Point(471, 289);
+            this.btRemover.Name = "btRemover";
+            this.btRemover.Size = new System.Drawing.Size(317, 143);
+            this.btRemover.TabIndex = 6;
+            this.btRemover.Text = "&Remover";
+            this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // Form1
             // 
