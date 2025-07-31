@@ -8,43 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ListaTelefônica.Models;
 
 namespace ListaTelefônica
 {
     public partial class Form1 : Form
     {
+        List<Contato> lista;
         string idContato = "";
-        string[][] lista;
-        readonly int MAX = 100;
+        string[][] list;
         public Form1()
         {
             InitializeComponent();
             btAdicionar.TabIndex = 0;
             btRemover.TabIndex = 1;
             dgvLista.TabStop = false;
-            lista = new string[MAX][];
+            lista = new List<Contato>();
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
         }
-
-        int Length(string[][] e)
-        {
-            int itens = 0;
-            for (int i = 0; i < e.Length; i++)
-                if (e[i] != null)
-                    itens++;
-            return itens;
-        }
-
-        int Length(string[] e)
-        {
-            int itens = 0;
-            for (int i = 0; i < e.Length; i++)
-                if (e[i] != null)
-                    itens++;
-            return itens;
-        }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -66,12 +48,14 @@ namespace ListaTelefônica
         void Atualizar()
         {
             dgvLista.Rows.Clear();
-            for (int i = 0; i < Length(lista); i++)
+            for (int i = 0; i < lista.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dgvLista);
-                for (int j = 0; j < Length(lista[i]); j++)
-                    row.Cells[j].Value = lista[i][j];
+                
+                row.Cells[0].Value = lista[i].Id;
+                row.Cells[1].Value = lista[i].Nome;
+                row.Cells[2].Value = lista[i].Telefone;
                 dgvLista.Rows.Add(row);
             }
             txtNome.Clear();
@@ -87,13 +71,7 @@ namespace ListaTelefônica
             {
                 MessageBox.Show("Insira um nome e telefone válidos.");
                 return;
-            }
-
-            if (Length(lista) >= MAX && idContato == "")
-            {
-                MessageBox.Show("A lista está cheia!", "Máximo de itens atingido");
-                return;
-            }
+            }   
 
             if (idContato != "")
             {
@@ -109,9 +87,17 @@ namespace ListaTelefônica
             }
             else
             {
-                int newId = 1;
-                if (Length(lista) > 0)
-                    newId = int.Parse(lista[Length(lista) - 1][0]) + 1;
+                int id = 1;
+                if (lista.Count > 0)
+                    id = lista.Max(c => c.Id) + 1;
+                
+                Contato novo = new Contato();
+                novo.Id = id;
+                novo.Nome = txtNome.Text;
+                novo.Telefone = txtTel.Text;
+
+                lista.Add(novo);
+
 
                 for (int i = 0; i < lista.Length; i++)
                 {
@@ -153,12 +139,11 @@ namespace ListaTelefônica
 
             if (result == DialogResult.Yes)
             {
-                for (int i = linha; i < Length(lista) - 1; i++)
-                    lista[i] = lista[i + 1];
-                lista[Length(lista) - 1] = null;
+                lista.RemoveAt(linha);
+                Atualizar();
             }
 
-            Atualizar();
+           
         }
 
         private void dgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
