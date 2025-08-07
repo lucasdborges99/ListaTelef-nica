@@ -55,6 +55,24 @@
     <Compile Include="Models\Contato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\FrmEditarContato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmEditarContato.Designer.cs">
+      <DependentUpon>FrmEditarContato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmNovoContato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmNovoContato.Designer.cs">
+      <DependentUpon>FrmNovoContato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +85,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\FrmEditarContato.resx">
+      <DependentUpon>FrmEditarContato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmNovoContato.resx">
+      <DependentUpon>FrmNovoContato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
