@@ -15,7 +15,7 @@ namespace ListaTelefônica
     public partial class Form1 : Form
     {
         List<Contato> lista;
-        string idContato = "";
+        int idContato = 0;
         string[][] list;
         public Form1()
         {
@@ -61,7 +61,7 @@ namespace ListaTelefônica
             txtNome.Clear();
             txtTel.Clear();
             txtNome.Focus();
-            idContato = ""; 
+            idContato = 0; 
             btAdicionar.Text = "Adicionar";
         }
 
@@ -71,45 +71,30 @@ namespace ListaTelefônica
             {
                 MessageBox.Show("Insira um nome e telefone válidos.");
                 return;
-            }   
+            }
 
-            if (idContato != "")
+            if (idContato != 0)
             {
-                for (int i = 0; i < Length(lista); i++)
+                Contato contato = lista.FirstOrDefault(c => c.Id == idContato);
+                if (contato != null)
                 {
-                    if (lista[i][0] == idContato)
-                    {
-                        lista[i][1] = txtNome.Text;
-                        lista[i][2] = txtTel.Text;
-                        break;
-                    }
+                    contato.Nome = txtNome.Text;
+                    contato.Telefone = txtTel.Text;
                 }
             }
+
             else
             {
-                int id = 1;
-                if (lista.Count > 0)
-                    id = lista.Max(c => c.Id) + 1;
-                
-                Contato novo = new Contato();
-                novo.Id = id;
-                novo.Nome = txtNome.Text;
-                novo.Telefone = txtTel.Text;
+                int id = lista.Count > 0 ? lista.Max(c => c.Id) + 1 : 1;
+
+                Contato novo = new Contato
+                {
+                    Id = id,
+                    Nome = txtNome.Text,
+                    Telefone = txtTel.Text
+                };
 
                 lista.Add(novo);
-
-
-                for (int i = 0; i < lista.Length; i++)
-                {
-                    if (lista[i] == null)
-                    {
-                        lista[i] = new string[3];
-                        lista[i][0] = newId.ToString();
-                        lista[i][1] = txtNome.Text;
-                        lista[i][2] = txtTel.Text;
-                        break;
-                    }
-                }
             }
 
             Atualizar();
@@ -124,14 +109,14 @@ namespace ListaTelefônica
             }
 
             int linha = dgvLista.SelectedCells[0].RowIndex;
-            if (linha < 0 || linha >= lista.Length || lista[linha] == null)
+            if (linha < 0 || linha >= lista.Count)
             {
                 MessageBox.Show("Selecione um item válido");
                 return;
             }
 
             DialogResult result = MessageBox.Show(
-                "Deseja de fato remover o contato de " + lista[linha][1] + "?",
+                "Deseja de fato remover o contato de " + lista[linha].Nome + "?",
                 "Remover",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
@@ -148,11 +133,11 @@ namespace ListaTelefônica
 
         private void dgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.RowIndex >= Length(lista) || lista[e.RowIndex] == null)
+            if (e.RowIndex < 0 || e.RowIndex >= lista.Count)
                 return;
 
             DialogResult confirmacao = MessageBox.Show(
-                "Deseja editar o contato de " + lista[e.RowIndex][1] + "?",
+                "Deseja editar o contato de " + lista[e.RowIndex].Nome + "?",
                 "Editar",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
@@ -160,12 +145,12 @@ namespace ListaTelefônica
 
             if (confirmacao == DialogResult.Yes)
             {
-                idContato = lista[e.RowIndex][0];
-                txtNome.Text = lista[e.RowIndex][1];
-                txtTel.Text = lista[e.RowIndex][2];
+                idContato = lista[e.RowIndex].Id;
+                txtNome.Text = lista[e.RowIndex].Nome;
+                txtTel.Text = lista[e.RowIndex].Telefone;
                 txtNome.Focus();
                 btAdicionar.Text = "Editar";
             }
         }
     }
-}
+}   
