@@ -66,6 +66,7 @@
             this.btSalvar.TabIndex = 7;
             this.btSalvar.Text = "&Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // txtNome
             // 
@@ -79,6 +80,7 @@
             // 
             this.txtTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.txtTel.Location = new System.Drawing.Point(171, 79);
+            this.txtTel.Mask = "(99) 9 0000-0000";
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(617, 45);
             this.txtTel.TabIndex = 9;
